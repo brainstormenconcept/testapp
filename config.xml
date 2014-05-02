@@ -28,7 +28,7 @@
         permission on your app, which PhoneGap requires.
     -->
     <preference name="permissions"                value="none"/>
-    <gap:plugin name="org.apache.cordova.device" />
+    
     <!-- Customize your app and platform with the preference element. -->
     <!-- <preference name="phonegap-version"      value="3.4.0" /> -->      <!-- all: current version of PhoneGap -->
     <preference name="orientation"                value="portrait" />        <!-- all: default means both landscape and portrait are enabled -->
@@ -52,6 +52,8 @@
         A list of available plugins are available at https://build.phonegap.com/docs/plugins
     -->
     <gap:plugin name="com.pushwoosh.plugins.pushwoosh" version="3.0.2" />
+    <gap:plugin name="org.apache.cordova.device" />
+    <gap:plugin name="org.apache.cordova.file" version="1.0.1" />
     
     <!-- Define app icon for each platform. -->
     <icon src="res/icon/ios/eva72x72@2x.png" />

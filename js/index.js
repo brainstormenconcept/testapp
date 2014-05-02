@@ -199,6 +199,7 @@ function onPushwooshAndroidInitialized(pushToken)
 function storeBrochure(){
 	alert('komt ie hier');
   var url = "http://www.evabydorc.com/app/cms/app/webroot/assets/brochures/27g/(1).jpg"; // image url
+  alert('url');
   window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
       var imagePath = fs.root.fullPath + "/brochures/1.png"; // full file path
       var fileTransfer = new FileTransfer();
@@ -207,7 +208,7 @@ function storeBrochure(){
       }, function (error) {
                alert("Some error");
       });
-   })
+   });
 }
 
 var app = {
