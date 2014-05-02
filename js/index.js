@@ -219,9 +219,10 @@ function onRequestFileSystemSuccess(fileSystem) {
 function onGetFileSuccess(fileEntry) {
     console.log('onGetFileSuccess!');
     var path = fileEntry.toURL().replace('dummy.html', '');
+    console.log(path);
     var fileTransfer = new FileTransfer();
     fileEntry.remove();
-    
+    console.log(fileTransfer);
     fileTransfer.download(
         'http://www.w3.org/2011/web-apps-ws/papers/Nitobi.pdf',
         path + 'theFile.pdf',
@@ -239,12 +240,12 @@ function onGetFileSuccess(fileEntry) {
 
 function showLink(url) {
     alert(url);
-    //var divEl = document.getElementById('deviceready');
-    //var aElem = document.createElement('a');
-    //aElem.setAttribute('target', '_blank');
-   // aElem.setAttribute('href', url);
-   // aElem.appendChild(document.createTextNode('Ready! Click To Open.'));
-   // divEl.appendChild(aElem);
+    var divEl = document.getElementById('bericht');
+    var aElem = document.createElement('a');
+    aElem.setAttribute('target', '_blank');
+   aElem.setAttribute('href', url);
+   aElem.appendChild(document.createTextNode('Ready! Click To Open.'));
+   divEl.appendChild(aElem);
 }
 
 function fail(evt) {
