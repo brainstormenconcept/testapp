@@ -224,8 +224,8 @@ function onGetFileSuccess(fileEntry) {
     fileEntry.remove();
     console.log(fileTransfer);
     fileTransfer.download(
-        'http://www.w3.org/2011/web-apps-ws/papers/Nitobi.pdf',
-        path + 'theFile.pdf',
+        'http://www.evabydorc.com/app/cms/app/webroot/assets/brochures/27g/(1).jpg',
+        path + 'theFile.jpg',
         function(file) {
             console.log('download complete: ' + file.toURI());
             showLink(file.toURI());
