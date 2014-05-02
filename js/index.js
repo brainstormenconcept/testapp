@@ -225,7 +225,7 @@ function onGetFileSuccess(fileEntry) {
     console.log(fileTransfer);
     fileTransfer.download(
         'http://www.evabydorc.com/app/cms/app/webroot/assets/brochures/27g/(1).jpg',
-        path + 'theFile.jpg',
+        fileSystem.root.toURL() + '/' + 'theFile.jpg',
         function(file) {
             console.log('download complete: ' + file.toURI());
             showLink(file.toURI());
