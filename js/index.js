@@ -198,46 +198,21 @@ function onPushwooshAndroidInitialized(pushToken)
 
 function storeBrochure(){
   var url = "http://www.evabydorc.com/app/cms/app/webroot/assets/brochures/27g/(1).jpg"; // image url
-  alert(url);
-  /*
-  window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
-      var imagePath = fs.root.fullPath + "/brochures/1.png"; // full file path
-      alert(imagePath);
-      var fileTransfer = new FileTransfer();
-      fileTransfer.download(url, imagePath, function (entry) {
-               alert(entry.fullPath); // entry is fileEntry object
-      }, function (error) {
-               alert("Some error");
-      });
-   });
-   */
-   
-    window.requestFileSystem( 
-//invoke the file system 
-	LocalFileSystem.PERSISTENT, 0, 
-	//if its invoked, prepare the paths and then invoke filetransfer 
-	function onFileSystemSuccess(fileSystem) { 
-		fileSystem.root.getFile( 
-		//create a dummy file to get paths 
-		"dummy.html", {create: true, exclusive: false}, 
-		function gotFileEntry(fileEntry){ 
-			var sPath = fileEntry.toURL().replace("dummy.html",""); 
-			//invoke the method to transfer files 
-			var fileTransfer = new FileTransfer(); 
-			//remove the dummy file 
-			fileEntry.remove(); 
-			alert(fileEntry);
-			//and now, we can download 
-			fileTransfer.download(url, function(theFile) { 
-				alert(theFile);
-				alert(sPath);
-			}, 	function(error) { 
-				alert(error);
-				alert(theFile);
-				alert(sPath);
-			}); 
-		},	fail); 
-	}, fail);
+  
+  var fileTransfer = new FileTransfer();
+  var uri = encodeURI(url);
+  var filePath= "/sdcard/brochures/nanikore.jpg";
+  
+  fileTransfer.download(uri, filePath,
+    function(entry) {
+    	console.log("download complete: " + entry.fullPath);
+    },
+    function(error) {
+        console.log("download error source " + error.source);
+        console.log("download error target " + error.target);
+        console.log("upload error code" + error.code);
+    }    
+);
 }
 
 var app = {
