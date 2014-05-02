@@ -1,0 +1,129 @@
+body {
+	font-family: 'Open Sans';
+	color:#fff;
+	overflow:hidden;
+}
+
+#topbar p {
+	margin:0;
+}
+/*
+#topbar {
+	background: url(../img/topbar_iphone.png) top center;
+	background-size: contain;
+	text-align: center;
+	height:44px;
+	padding:10px 0;
+	font-weight:700;
+	text-transform:none;
+	text-shadow: 1px 1px 2px #204e5f;
+}
+
+#topbar.product{
+	background: url(../img/slide3-topbar_iphone.png) top center;
+	background-size: cover;
+	text-align: center;
+	height:44px;
+	padding:10px 0;
+	font-weight:700;
+	text-transform:none;
+	text-shadow: 1px 1px 2px #204e5f;
+}
+
+*/
+/*
+.eva {
+	background:  url(../img/slide1_iphone.jpg) top left;
+	background-size: contain;
+}
+
+#slide2 {
+	background:  url(../img/slide1_iphone_popup.jpg) top center;
+	background-size: contain;
+}
+
+#slide3 {
+	background:  url(../img/slide3_iphone_popup.jpg) top center;
+	background-size: contain;
+}
+*/
+.iphone5 #topbar {
+	background: url(../img/topbar_iphone.png) top center;
+	background-size: contain;
+	text-align: center;
+	height:44px;
+	padding:10px 0;
+	font-weight:700;
+	text-transform:none;
+	text-shadow: 1px 1px 2px #204e5f;
+}
+
+.iphone5 #topbar.product{
+	background: url(../img/slide3-topbar_iphone.png) top center;
+	background-size: cover;
+	text-align: center;
+	height:44px;
+	padding:10px 0;
+	font-weight:700;
+	text-transform:none;
+	text-shadow: 1px 1px 2px #204e5f;
+}
+
+.iphone5 .eva {
+	background:  url(../img/slide1_iphone.jpg) top left;
+	background-size: contain;
+}
+
+.iphone5 #slide2 {
+	background:  url(../img/slide1_iphone_popup.jpg) top center;
+	background-size: contain;
+}
+
+.iphone5 #slide3 {
+	background:  url(../img/slide3_iphone_popup.jpg) top center;
+	background-size: contain;
+}
+
+.ipad3 #topbar, .ipad #topbar, #topbar {
+	background: url(../img/topbar_ipad.png) top center;
+	background-size: 100%;
+	text-align: center;
+	font-size:24px;
+	height:76px;
+	padding:20px 0;
+	font-weight:700;
+	text-transform:none;
+	text-shadow: 2px 2px 5px #204e5f;
+}
+
+.ipad3 #topbar.product, .ipad #topbar.product, #topbar.product {
+	background: url(../img/slide3_topbar_ipad.jpg) top center;
+	background-size: 100%;
+	text-align: center;
+	font-size:24px;
+	height:76px;
+	padding:20px 0;
+	font-weight:700;
+	text-transform:none;
+	text-shadow: 2px 2px 5px #204e5f;
+}
+
+.ipad3 .eva, .ipad .eva, .eva {
+	background:  url(../img/slide1_ipad.jpg) top left;
+	background-size: 50%;
+}
+
+.ipad3 #slide2, .ipad #slide2, #slide2 {
+	background:  url(../img/slide2_ipad.jpg) top center;
+	background-size: 100%;
+}
+
+.ipad3 #slide3, .ipad #slide3, #slide3 {
+	background:  url(../img/slide3_ipad.jpg) top center;
+	background-size: 100%;
+}
+
+.view {
+	float:left;
+}
+
