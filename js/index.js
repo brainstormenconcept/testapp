@@ -141,11 +141,6 @@ function onPushwooshAndroidInitialized(pushToken)
 		pushNotification.onDeviceReady();
 	}
 
-	if(device.platform == "iPhone" || device.platform == "iOS")
-	{
-		registerPushwooshIOS();
-		pushNotification.onDeviceReady();
-	}
 }
 
 var app = {
@@ -159,15 +154,14 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
-        document.addEventListener("deviceready", this.initPushwoosh, true);
     },
     // deviceready Event Handler
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
         initPushwoosh();
+        app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
