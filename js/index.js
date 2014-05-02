@@ -27,6 +27,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener("deviceready", this.initPushwoosh, true);
     },
     // deviceready Event Handler
     //
@@ -34,6 +35,7 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        app.initPushwoosh();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -45,5 +47,35 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-    }
+    },
+    
+    initPushwoosh: function(){
+	    var pushNotification = window.plugins.pushNotification;
+	    pushNotification.onDeviceReady();
+	 	console.log(1);
+	    pushNotification.registerDevice({ projectid: "821107598432", appid : "2A963-861C4" },
+	        function(status) {
+	            var pushToken = status;
+	            console.warn('push token: ' + pushToken);
+	            console.log(status);
+	        },
+	        function(status) {
+	            console.warn(JSON.stringify(['failed to register ', status]));
+	            console.log(status);
+	        }
+	        
+	    );
+ 		console.log('Received Event: hoi');
+	    document.addEventListener('push-notification', function(event) {
+	        var title = event.notification.title;
+	            var userData = event.notification.userdata;
+	                                 
+	            if(typeof(userData) != "undefined") {
+	            console.warn('user data: ' + JSON.stringify(userData));
+	        }
+	                                     
+	        navigator.notification.alert(title);
+	    });
+	    
+	}
 };
