@@ -19,6 +19,54 @@
  * 
  */
 
+function registerPushwooshIOS() {
+ 	var pushNotification = window.plugins.pushNotification;
+
+ 	//push notifications handler
+	document.addEventListener('push-notification', function(event) {
+				var notification = event.notification;
+				navigator.notification.alert(notification.aps.alert);
+				
+				//to view full push payload
+				//navigator.notification.alert(JSON.stringify(notification));
+				
+				//reset badges on icon
+				pushNotification.setApplicationIconBadgeNumber(0);
+			  });
+
+	pushNotification.registerDevice({alert:true, badge:true, sound:true, pw_appid:"4F0C807E51EC77.93591449", appname:"Pushwoosh"},
+									function(status) {
+										var deviceToken = status['deviceToken'];
+										console.warn('registerDevice: ' + deviceToken);
+										onPushwooshiOSInitialized(deviceToken);
+									},
+									function(status) {
+										console.warn('failed to register : ' + JSON.stringify(status));
+										navigator.notification.alert(JSON.stringify(['failed to register ', status]));
+									});
+	
+	//reset badges on start
+	pushNotification.setApplicationIconBadgeNumber(0);
+}
+
+function onPushwooshiOSInitialized(pushToken)
+{
+	var pushNotification = window.plugins.pushNotification;
+	//retrieve the tags for the device
+	pushNotification.getTags(function(tags) {
+								console.warn('tags for the device: ' + JSON.stringify(tags));
+							 },
+							 function(error) {
+								console.warn('get tags error: ' + JSON.stringify(error));
+							 });
+	 
+	//start geo tracking. PWTrackSignificantLocationChanges - Uses GPS in foreground, Cell Triangulation in background. 
+	pushNotification.startLocationTracking('PWTrackSignificantLocationChanges',
+									function() {
+										   console.warn('Location Tracking Started');
+									});
+}
+
 function registerPushwooshAndroid() {
 
  	var pushNotification = window.plugins.pushNotification;
@@ -141,6 +189,11 @@ function onPushwooshAndroidInitialized(pushToken)
 		pushNotification.onDeviceReady();
 	}
 
+	if(device.platform == "iPhone" || device.platform == "iOS")
+	{
+		registerPushwooshIOS();
+		pushNotification.onDeviceReady();
+	}
 }
 
 var app = {
@@ -165,12 +218,6 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
     }
