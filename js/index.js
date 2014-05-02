@@ -270,7 +270,6 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         initPushwoosh();
-        downloadFile();
         app.receivedEvent('deviceready');
     },
     // Update DOM on a Received Event
