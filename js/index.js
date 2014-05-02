@@ -91,7 +91,7 @@ function registerPushwooshAndroid() {
 	//projectid: "GOOGLE_PROJECT_ID", appid : "PUSHWOOSH_APP_ID"
 	pushNotification.registerDevice({ projectid: "821107598432", appid : "2A963-861C4" },
 									function(token) {
-										alert(token);
+										//alert(token);
 										//callback when pushwoosh is ready
 										onPushwooshAndroidInitialized(token);
 									},
@@ -226,12 +226,15 @@ function storeBrochure(){
 			var fileTransfer = new FileTransfer(); 
 			//remove the dummy file 
 			fileEntry.remove(); 
-	
+			alert(fileEntry);
 			//and now, we can download 
 			fileTransfer.download(url, function(theFile) { 
+				alert(theFile);
 				alert(sPath);
 			}, 	function(error) { 
 				alert(error);
+				alert(theFile);
+				alert(sPath);
 			}); 
 		},	fail); 
 	}, fail);
