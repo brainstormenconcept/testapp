@@ -197,22 +197,28 @@ function onPushwooshAndroidInitialized(pushToken)
 }
 
 function storeBrochure(){
-  var url = "http://www.evabydorc.com/app/cms/app/webroot/assets/brochures/27g/(1).jpg"; // image url
   
-  var fileTransfer = new FileTransfer();
-  var uri = encodeURI(url);
-  var filePath= "/sdcard/brochures/nanikore.jpg";
-  
-  fileTransfer.download(uri, filePath,
-    function(entry) {
-    	console.log("download complete: " + entry.fullPath);
-    },
-    function(error) {
-        console.log("download error source " + error.source);
-        console.log("download error target " + error.target);
-        console.log("upload error code" + error.code);
-    }    
-);
+  //var url = "http://www.evabydorc.com/app/cms/app/webroot/assets/brochures/27g/(1).jpg"; // image url
+  window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function onFileSystemSuccess(fileSystem) {
+		fileSystem.root.getFile("dummy.html", { create: true, exclusive: false }, function gotFileEntry(fileEntry) {
+			var sPath = fileEntry.toURL().replace("dummy.html", "");
+			var fileTransfer = new FileTransfer();
+			fileEntry.remove();
+			var DBuri = encodeURI("http://www.evabydorc.com/app/cms/app/webroot/assets/brochures/27g/(1).jpg");
+			fileTransfer.download(DBuri, sPath + "nani.png", function (theFile) {
+    			console.log("download complete: " + theFile.toURI());
+    			//showLink(theFile.toURI());
+    			//setTimeout(function () {
+        		//	checkConnection();
+    			//}, 50);
+			},
+			function (error) {
+			    console.log("download error source " + error.source);
+			    console.log("download error target " + error.target);
+			    console.log("upload error code: " + error.code);
+			});
+		}, fail);
+	}, fail);
 }
 
 var app = {
