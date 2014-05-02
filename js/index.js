@@ -199,9 +199,10 @@ function onPushwooshAndroidInitialized(pushToken)
 function storeBrochure(){
 	alert('komt ie hier');
   var url = "http://www.evabydorc.com/app/cms/app/webroot/assets/brochures/27g/(1).jpg"; // image url
-  alert('url');
+  alert(url);
   window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
       var imagePath = fs.root.fullPath + "/brochures/1.png"; // full file path
+      alert(imagePath);
       var fileTransfer = new FileTransfer();
       fileTransfer.download(url, imagePath, function (entry) {
                alert(entry.fullPath); // entry is fileEntry object
