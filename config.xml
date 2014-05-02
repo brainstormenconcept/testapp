@@ -6,10 +6,10 @@
         id        = "com.bc.testapp"
         version   = "1.0.0">
 
-    <name>EVA</name>
+    <name>Testapp</name>
 
     <description>
-        EVA
+        Test
     </description>
 
     <author href="http://phonegap.com" email="support@phonegap.com">
@@ -20,7 +20,7 @@
         Enable individual API permissions here.
         The "device" permission is required for the 'deviceready' event.
     -->
-    <feature name="http://api.phonegap.com/1.0/device" />
+    <preference name="phonegap-version" value="3.3.0" />
 
     <!--
         If you do not want any permissions to be added to your app, add the
@@ -51,7 +51,8 @@
         <gap:plugin name="Example" />
         A list of available plugins are available at https://build.phonegap.com/docs/plugins
     -->
-
+    <gap:plugin name="com.pushwoosh.plugins.pushwoosh" version="3.0.2" />
+    
     <!-- Define app icon for each platform. -->
     <icon src="res/icon/ios/eva72x72@2x.png" />
     <icon src="res/icon/ios/eva72x72@2x.png"   gap:platform="android"    gap:density="ldpi" />
@@ -80,7 +81,7 @@
     <gap:splash src="res/screen/ios/screen-ipad-landscape.png"     gap:platform="ios"     width="1024" height="768" />
     <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
 
-    <gap:plugin name="com.pushwoosh.plugins.pushwoosh" version="3.0.2" />
+    
     <!--
         Define access to external domains.
 
