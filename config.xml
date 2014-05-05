@@ -55,7 +55,7 @@
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.file" version="1.0.1" />
     <gap:plugin name="org.apache.cordova.file-transfer" version="0.4.2" />
-    <gap:plugin name="org.li8.inappbrowser" version="0.1" />
+    <gap:plugin name="org.apache.cordova.inappbrowser" version="0.3.3" />
     
     <!-- Define app icon for each platform. -->
     <icon src="res/icon/ios/eva72x72@2x.png" />
