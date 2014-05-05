@@ -237,6 +237,13 @@ function fail(evt) {
     console.log(evt.target.error.code);
 }
 
+
+
+/* video */
+var id = "Ip7ip267lVA";
+var ref = window.open('http://www.youtube.com/embed/'+id+'?html5=1', '_blank', 'location=yes');
+ref.addEventListener('loadstart', function() { alert(event.url); });
+
 var app = {
     // Application Constructor
     initialize: function() {
